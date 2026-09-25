@@ -21,6 +21,6 @@ python3 -m unittest discover -v
 
 ## 자동 실행
 
-`com.minjaeku.anki-crawling.plist`의 경로를 현재 폴더에 맞춘 뒤 `launchctl bootstrap`으로 등록합니다. 대시보드 모듈은 기존 Python 서버에서 `/api/anki`와 정적 파일 경로를 연결해 사용합니다.
+`com.minjaeku.anki-crawling.plist`의 `/path/to/anki-reddit-vocabulary`를 실제 폴더로 바꾼 뒤 `launchctl bootstrap`으로 등록합니다. 브리핑 연동이 필요하면 `ANKI_BRIEFING_SCRIPT`와 `HERMES_BRIEFINGS_DIR` 환경변수로 경로를 지정합니다. 대시보드 모듈은 기존 Python 서버에서 `/api/anki`와 정적 파일 경로를 연결해 사용합니다.
 
 생성되는 `state.sqlite3`, 로그, 일일 요약, 평가 결과는 저장소에 올리지 않습니다.

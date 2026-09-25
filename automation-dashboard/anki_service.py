@@ -14,7 +14,7 @@ DISABLED = ROOT / "disabled"
 CONFIG = ROOT / "config.json"
 DEFAULT_SUBREDDITS = ["robotics", "MachineLearning", "ControlTheory", "ROS", "cpp", "compsci", "math"]
 SUBREDDIT = re.compile(r"[A-Za-z0-9][A-Za-z0-9_]{1,20}")
-BRIEFINGS = pathlib.Path.home() / "hermes-yuna/briefings"
+BRIEFINGS = pathlib.Path(os.environ.get("HERMES_BRIEFINGS_DIR", str(pathlib.Path.home() / "briefings")))
 
 
 def _read_summary():
