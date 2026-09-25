@@ -1,0 +1,396 @@
+run_id,word,cefr,source,origin,meaning
+20260925-213036,form factor,B2,reddit,r/robotics,"폼팩터, 제품의 물리적 크기·형태 규격"
+20260925-213036,locomotion,C1,reddit,r/robotics,"이동, 보행 (특히 로봇의 이동 방식)"
+20260925-213036,randomization,C1,reddit,r/robotics,무작위화
+20260925-213036,in combination with,B2,reddit,r/robotics,"~와 함께, ~와 결합하여"
+20260925-213036,under load,B2,reddit,r/robotics,부하가 걸린 상태에서
+20260925-213036,work in progress,B2,reddit,r/robotics,"진행 중인 작업, 아직 완성되지 않은 것"
+20260925-213036,go hard,B2,reddit,r/robotics,"어떤 일에 지나칠 정도로 열정적으로 하다, 과하게 공을 들이다"
+20260925-213036,with a twist,B2,reddit,r/robotics,"색다른 변화를 더해서, 기존과는 다른 변형을 가미해서"
+20260925-213036,oscillating,C1,reddit,r/robotics,"진동하는, 앞뒤로 왕복 운동하는"
+20260925-213036,feasibly,C1,reddit,r/robotics,"실현 가능하게, 실행 가능하게"
+20260925-213036,scarcity,C1,reddit,r/robotics,"부족, 결핍"
+20260925-213036,empathetic,C1,reddit,r/robotics,"공감하는, 감정이입적인"
+20260925-213036,reach out,B2,reddit,r/robotics,연락하다
+20260925-213036,work together,B2,reddit,r/robotics,"함께 작동하다, 협력하다"
+20260925-213036,spend time on,B2,reddit,r/robotics,~에 시간을 쓰다
+20260925-213036,put together,B2,reddit,r/robotics,"(여러 요소를 모아) 구성하다, 조립하다"
+20260925-213036,inference,C1,reddit,r/robotics,추론 (학습된 모델로 예측을 수행하는 과정)
+20260925-213036,plenty of room to,B2,reddit,r/robotics,~할 여지가 충분히 있다
+20260925-213036,pinout,C1,reddit,r/robotics,"핀 배치도, 각 핀의 기능과 연결을 나타낸 도표"
+20260925-213036,breakout,C1,reddit,r/robotics,다채널 신호를 개별 단자로 분리하는 배선 방식(브레이크아웃 보드/케이블)
+20260925-213036,power draw,B2,reddit,r/robotics,"전력 소모량, 소비 전류"
+20260925-213036,signal routing,B2,reddit,r/robotics,"신호 배선 경로 설계, 신호 라우팅"
+20260925-213036,ablation,C1,reddit,r/robotics,소거 실험; 구성 요소를 하나씩 제거해 각 요소의 기여도를 평가하는 실험
+20260925-213036,rollout,C1,reddit,r/robotics,롤아웃; 정책을 환경에서 한 번 실행하여 얻는 궤적/시행
+20260925-213036,augmentation,C1,reddit,r/robotics,증강; 데이터를 변형해 학습 데이터를 늘리는 기법
+20260925-213036,get more out of,B2,reddit,r/robotics,~에서 더 많은 것을 얻어내다; 같은 자원으로 더 큰 효과를 보다
+20260925-213036,de facto,C1,reddit,r/robotics,"사실상의, 실제로 인정된"
+20260925-213036,keep down,B2,reddit,r/robotics,"（풀 등을）자라지 못하게 억제하다, 짧게 유지하다"
+20260925-213036,additive manufacturing,C1,reddit,r/robotics,적층 제조 (3D 프린팅 방식의 제조)
+20260925-213036,technical assistance,B2,reddit,r/robotics,기술 지원
+20260925-213036,less-lethal,C1,reddit,r/robotics,"치명적이지 않은, 비살상의"
+20260925-213036,tediously,C1,reddit,r/robotics,"지루할 정도로, 따분하게"
+20260925-213036,look forward to,B2,reddit,r/robotics,"~하기를 기대하다, 고대하다"
+20260925-213036,remote desktop,B2,reddit,r/robotics,원격 데스크톱
+20260925-213036,dexterity,C1,reddit,r/robotics,"손재주, (특히 손의) 민첩함"
+20260925-213036,imitation learning,C1,reddit,r/robotics,모방 학습 (전문가 시연 데이터로 정책을 학습하는 기법)
+20260925-213036,open source,B2,reddit,r/robotics,"오픈 소스의, 소스 코드가 공개된"
+20260925-213036,diverge,C1,reddit,r/robotics,"발산하다, 점점 벌어지다"
+20260925-213036,rule out,B2,reddit,r/robotics,"배제하다, 불가능하게 만들다"
+20260925-213036,reproject,C1,reddit,r/robotics,재투영하다
+20260925-213036,triangulate,C1,reddit,r/robotics,"삼각측량하다, 삼각법으로 위치를 계산하다"
+20260925-213036,hardware-agnostic,C1,reddit,r/robotics,하드웨어에 구애받지 않는
+20260925-213036,seamlessly,C1,reddit,r/robotics,"매끄럽게, 원활하게"
+20260925-213036,monetize,C1,reddit,r/robotics,수익화하다
+20260925-213036,motion planning,B2,reddit,r/robotics,동작 계획
+20260925-213036,sold out,B2,reddit,r/MachineLearning,매진된
+20260925-213036,justification,C1,reddit,r/MachineLearning,"정당화, 근거 제시"
+20260925-213036,meta-review,C1,reddit,r/MachineLearning,메타 리뷰(리뷰들을 종합한 총평)
+20260925-213036,raise concerns,B2,reddit,r/MachineLearning,우려를 제기하다
+20260925-213036,reconsideration,C1,reddit,r/MachineLearning,"재고, 재검토"
+20260925-213036,incremental,C1,reddit,r/MachineLearning,"점진적인, 조금씩 나아지는 (여기서는 기여도가 기존 연구 대비 미미하다는 의미)"
+20260925-213036,broader impact,C1,reddit,r/MachineLearning,광범위한 영향력 (연구가 사회·과학계에 미치는 넓은 파급 효과)
+20260925-213036,take (something) in the wrong direction,C1,reddit,r/MachineLearning,연구를 잘못된 방향으로 이끌다
+20260925-213036,bring up,B2,reddit,r/MachineLearning,"(문제·의견을) 제기하다, 언급하다"
+20260925-213036,resubmission,C1,reddit,r/MachineLearning,"재제출, 다시 논문을 투고함"
+20260925-213036,rebuttal,C1,reddit,r/MachineLearning,"반박, 반론 (논문 심사에 대한 답변)"
+20260925-213036,proposition,C1,reddit,r/MachineLearning,"명제, 제안"
+20260925-213036,camera-ready,C1,reddit,r/MachineLearning,카메라 레디 (학회 최종 제출본)
+20260925-213036,unblinded,C1,reddit,r/MachineLearning,"익명성이 해제된, 심사에서 저자 정보가 공개된"
+20260925-213036,exposition,C1,reddit,r/MachineLearning,"설명, 해설; 논문에서의 상세한 설명"
+20260925-213036,dot the i's and cross the t's,C1,reddit,r/MachineLearning,"세부사항까지 철저히 확인하다, 빈틈없이 처리하다"
+20260925-213036,borderline,C1,reddit,r/MachineLearning,"경계선상의, 아슬아슬한"
+20260925-213036,give all my time to,B2,reddit,r/MachineLearning,~에 모든 시간을 쏟다
+20260925-213036,interview prep,B2,reddit,r/MachineLearning,면접 준비
+20260925-213036,share my screen,B2,reddit,r/MachineLearning,화면을 공유하다
+20260925-213036,connect over,B2,reddit,r/MachineLearning,"~을 통해 연결하다, ~로 만나다"
+20260925-213036,top tier,B2,reddit,r/MachineLearning,"최상위권의, 일류의"
+20260925-213036,in search of,B2,reddit,r/MachineLearning,"~을 찾고 있는, ~을 추구하는"
+20260925-213036,elitist,C1,reddit,r/MachineLearning,"엘리트주의적인, 상류층만을 위한"
+20260925-213036,at this point,B2,reddit,r/MachineLearning,"현재 시점에서는, 이 단계에서는"
+20260925-213036,defunct,C1,reddit,r/MachineLearning,"더 이상 존재하지 않거나 운영되지 않는, 폐지된"
+20260925-213036,decouple,C1,reddit,r/MachineLearning,"분리하다, 독립시키다"
+20260925-213036,premise,C1,reddit,r/MachineLearning,"전제, 가정"
+20260925-213036,crux,C2,reddit,r/MachineLearning,"핵심, 요점"
+20260925-213036,over-reliance,C1,reddit,r/MachineLearning,과도한 의존
+20260925-213036,ballpark,C1,reddit,r/MachineLearning,"대략적인, 어림잡은"
+20260925-213036,post-rebuttal,C1,reddit,r/MachineLearning,반박 이후의
+20260925-213036,respond back,B2,reddit,r/MachineLearning,"답변을 주다, 회신하다 (다소 구어적인 표현)"
+20260925-213036,aligned,C1,reddit,r/MachineLearning,"일치하는, 부합하는"
+20260925-213036,switch fields,B2,reddit,r/MachineLearning,분야를 바꾸다
+20260925-213036,hold up,B2,reddit,r/MachineLearning,"견디다, 버티다; 상황이 어떻게 되어가다"
+20260925-213036,get through,B2,reddit,r/MachineLearning,"경험하다, 겪다; 통과하다"
+20260925-213036,ideate,C1,reddit,r/MachineLearning,"아이디어를 구상하다, 착상하다"
+20260925-213036,jumbled,C1,reddit,r/MachineLearning,"뒤섞인, 혼란스러운"
+20260925-213036,in parallel,B2,reddit,r/MachineLearning,"동시에, 병행하여"
+20260925-213036,fault tolerance,C1,reddit,r/MachineLearning,"결함 허용, 오류가 발생해도 시스템이 정상 작동을 유지하는 능력"
+20260925-213036,point toward,B2,reddit,r/MachineLearning,"~을 시사하다, ~쪽을 가리키다"
+20260925-213036,spot instance,C1,reddit,r/MachineLearning,스팟 인스턴스 (클라우드에서 저렴하게 제공되는 일시적 컴퓨팅 자원)
+20260925-213036,harness,C1,reddit,r/MachineLearning,특정 작업을 수행하도록 설계된 소프트웨어 도구나 프레임워크
+20260925-213036,algorithmic,C1,reddit,r/MachineLearning,"알고리즘과 관련된, 알고리즘적인"
+20260925-213036,linear system,B2,reddit,r/MachineLearning,선형 방정식 시스템
+20260925-213036,tie to,B2,reddit,r/MachineLearning,"~와 밀접하게 연결하다, 연관짓다"
+20260925-213036,build up,B2,reddit,r/MachineLearning,"점진적으로 구축하다, 쌓아 올리다"
+20260925-213036,expressivity,C1,reddit,r/MachineLearning,표현력 (모델이 얼마나 다양한 함수를 표현할 수 있는지)
+20260925-213036,orthogonal,C1,reddit,r/MachineLearning,직교의
+20260925-213036,rank-one,C1,reddit,r/MachineLearning,계수 1의 (행렬)
+20260925-213036,compliant,C1,reddit,r/ControlTheory,"유연한, 순응적인; 힘에 따라 물러나는 (로봇에서는 접촉력에 순응하는 제어를 의미)"
+20260925-213036,overshoot,C1,reddit,r/ControlTheory,"제어 응답이 목표값을 초과하여 지나가는 현상, 오버슈트"
+20260925-213036,aggregate,C1,reddit,r/ControlTheory,"여러 개를 하나로 모으다, 집계하다"
+20260925-213036,ingest,C1,reddit,r/ControlTheory,"(데이터를) 받아들여 처리하다, 수집하다"
+20260925-213036,settling time,C1,reddit,r/ControlTheory,정착 시간 (응답이 목표값의 허용 범위 안에 머무르기까지 걸리는 시간)
+20260925-213036,control effort,B2,reddit,r/ControlTheory,"제어 노력, 제어 입력의 크기 (에너지 소모)"
+20260925-213036,seminal,C1,reddit,r/ControlTheory,"후속 연구에 큰 영향을 준, 기념비적인"
+20260925-213036,catch one's eye,B2,reddit,r/ControlTheory,"눈길을 끌다, 주목을 끌다"
+20260925-213036,model-free,C1,reddit,r/ControlTheory,"모델에 의존하지 않는, 모델 없는"
+20260925-213036,lumpy,C1,reddit,r/ControlTheory,"불규칙하게 몰려 있는, 덩어리진"
+20260925-213036,control-theoretic,C1,reddit,r/ControlTheory,"제어 이론의, 제어 이론에 기반한"
+20260925-213036,as opposed to,B2,reddit,r/ControlTheory,"~와는 대조적으로, ~가 아니라"
+20260925-213036,split across,B2,reddit,r/ControlTheory,"~에 걸쳐 나뉘다, 분산되다"
+20260925-213036,take care of,B2,reddit,r/ControlTheory,"처리하다, 담당하다"
+20260925-213036,be for,B2,reddit,r/ControlTheory,"~의 용도이다, 무엇을 위한 것인지"
+20260925-213036,dive into,B2,reddit,r/ControlTheory,"본격적으로 파고들다, 깊이 시작하다"
+20260925-213036,in such a way that,B2,reddit,r/ControlTheory,"~하도록, ~하는 방식으로"
+20260925-213036,in charge of,B2,reddit,r/ControlTheory,"~을 담당하는, 책임지는"
+20260925-213036,shared ownership,B2,reddit,r/ControlTheory,"공동 책임, 분담된 소유권"
+20260925-213036,bridge the gap,B2,reddit,r/ControlTheory,"격차를 메우다, 공백을 연결하다"
+20260925-213036,industry demand,B2,reddit,r/ControlTheory,산업 수요
+20260925-213036,fall into the rabbit hole,C1,reddit,r/ControlTheory,어떤 주제에 빠져들어 깊이 파고들다
+20260925-213036,fiasco,C1,reddit,r/ControlTheory,"완전한 실패, 대실수"
+20260925-213036,wishful thinking,C1,reddit,r/ControlTheory,"희망 사항에 불과한 생각, 현실성 없는 기대"
+20260925-213036,actuate,C1,reddit,r/ControlTheory,"작동시키다, 구동하다"
+20260925-213036,pertinent,C1,reddit,r/ControlTheory,"관련 있는, 적절한"
+20260925-213036,mounting bracket,B2,reddit,r/ControlTheory,"장착 브래킷, 고정용 받침대"
+20260925-213036,replicate,C1,reddit,r/ControlTheory,"복제하다, 재현하다"
+20260925-213036,a matter of,B2,reddit,r/ControlTheory,~의 문제이다
+20260925-213036,sanity-check,C1,reddit,r/ControlTheory,"합리적인지, 말이 되는지 검증하다"
+20260925-213036,make sense,B2,reddit,r/ControlTheory,"이치에 맞다, 타당하다"
+20260925-213036,in series,B2,reddit,r/ControlTheory,직렬로
+20260925-213036,feedback loop,B2,reddit,r/ControlTheory,"피드백 루프, 되먹임 회로"
+20260925-213036,fault-tolerant,C1,reddit,r/ControlTheory,"고장 허용의, 결함이 있어도 정상 작동하는"
+20260925-213036,work out,B2,reddit,r/ControlTheory,"잘 풀리다, 성공하다 (여기서는 부정형으로 '잘 되지 않았다')"
+20260925-213036,get stuck,B2,reddit,r/ControlTheory,"막히다, 진전이 안 되다"
+20260925-213036,figure out,B2,reddit,r/ControlTheory,"이해하다, 알아내다, 해결하다"
+20260925-213036,tangentially,C1,reddit,r/ControlTheory,"간접적으로, 부차적으로 관련된"
+20260925-213036,highball,C1,reddit,r/ControlTheory,"높은 요구, 과장된 제안"
+20260925-213036,threw my hat in the ring,C1,reddit,r/ControlTheory,"경쟁에 뛰어들다, 도전하다"
+20260925-213036,talk shop,C1,reddit,r/ControlTheory,"업무 이야기를 하다, 전문적인 대화를 나누다"
+20260925-213036,in detail,B2,reddit,r/ControlTheory,"자세히, 상세히"
+20260925-213036,drawn out,B2,reddit,r/ControlTheory,"오래 끄는, 장기화된"
+20260925-213036,wait on,B2,reddit,r/ControlTheory,~을 기다리다
+20260925-213036,canon,C1,reddit,r/ControlTheory,"권위 있는 기본 목록, 정전(正典)"
+20260925-213036,branch out,B2,reddit,r/ControlTheory,"영역을 넓히다, 새로운 분야로 뻗어나가다"
+20260925-213036,contention,C1,reddit,r/ROS,"경쟁, 자원 쟁탈 (여기서는 컴퓨팅 자원 경합)"
+20260925-213036,embodied,C1,reddit,r/ROS,"신체를 가진, 물리적 몸체에 구현된"
+20260925-213036,reflect on,B2,reddit,r/ROS,"~을 되돌아보다, 곰곰이 생각하다"
+20260925-213036,translate into,B2,reddit,r/ROS,"(결과·성과 등으로) 이어지다, 전환되다"
+20260925-213036,compliance,C1,reddit,r/ROS,"순응성, 유연성"
+20260925-213036,catch up with,B2,reddit,r/ROS,"만나서 이야기를 나누다, 따라잡다"
+20260925-213036,spin out,C1,reddit,r/ROS,"(연구실 등에서) 분사하다, 독립 회사로 분리되다"
+20260925-213036,backlog,C1,reddit,r/ROS,"밀린 일, 적체된 업무"
+20260925-213036,validated,C1,reddit,r/ROS,검증된
+20260925-213036,pick up,B2,reddit,r/ROS,집어 들다
+20260925-213036,topology,C1,reddit,r/ROS,"위상, 연결 구조"
+20260925-213036,sanitize,C1,reddit,r/ROS,"정제하다, 불필요한 정보를 제거하다"
+20260925-213036,articulated,C1,reddit,r/ROS,"관절로 연결된, 다관절의"
+20260925-213036,teleoperate,C1,reddit,r/ROS,원격 조작하다
+20260925-213036,collision shape,C1,reddit,r/ROS,"충돌 형상, 충돌 감지를 위한 기하학적 형태"
+20260925-213036,glitchy,C1,reddit,r/ROS,"오류가 많은, 결함이 있는"
+20260925-213036,disclosure,C1,reddit,r/ROS,"이해관계 공개, 정보 공개"
+20260925-213036,natively,C1,reddit,r/ROS,"네이티브로, 해당 운영체제에 맞게 직접"
+20260925-213036,willing to,B2,reddit,r/ROS,기꺼이 ~할 의향이 있는
+20260925-213036,rely on,B2,reddit,r/ROS,"~에 의존하다, ~에 기대다"
+20260925-213036,redundant,C1,reddit,r/ROS,"불필요한, 중복된"
+20260925-213036,in short,B2,reddit,r/ROS,"요약하자면, 간단히 말해"
+20260925-213036,retrieval,C1,reddit,r/ROS,"검색, 회수; 데이터나 물건을 찾아내어 가져오는 것"
+20260925-213036,run into,B2,reddit,r/ROS,"우연히 마주치다, (문제에) 부딪히다"
+20260925-213036,unicast,C1,reddit,r/ROS,유니캐스트(일대일 통신)
+20260925-213036,deprecated,C1,reddit,r/ROS,"더 이상 사용되지 않는, 폐지 예정인"
+20260925-213036,provenance,C1,reddit,r/ROS,"출처, 유래 (데이터나 산출물의 원천 이력)"
+20260925-213036,dirty state,B2,reddit,r/ROS,작업 트리에 커밋되지 않은 변경이 있는 상태
+20260925-213036,manually supplied,B2,reddit,r/ROS,"수동으로 입력된, 사람이 직접 제공한"
+20260925-213036,move toward,B2,reddit,r/ROS,"~쪽으로 나아가다, 방향을 전환하다"
+20260925-213036,stumble upon,B2,reddit,r/ROS,"우연히 발견하다, 우연히 접하다"
+20260925-213036,accrue,C1,reddit,r/ROS,"(오차·이자 등이) 누적되다, 쌓이다"
+20260925-213036,entrapment,C1,reddit,r/ROS,"갇힘, 빠져나오지 못하게 됨"
+20260925-213036,tangential,C1,reddit,r/ROS,접선 방향의
+20260925-213036,manipulation,C1,reddit,r/ROS,"조작, 매니퓰레이션 (로봇이 물체를 다루는 동작)"
+20260925-213036,end-to-end,C1,reddit,r/ROS,"종단 간의, 처음부터 끝까지 일관된"
+20260925-213036,fit into,B2,reddit,r/ROS,"~에 들어맞다, ~에 통합되다"
+20260925-213036,erratic,C1,reddit,r/ROS,"불규칙하게, 예측 불가능하게 움직이는"
+20260925-213036,culprit,C1,reddit,r/ROS,"문제의 원인, 범인"
+20260925-213036,feedforward,C1,reddit,r/ROS,"피드포워드, 전방향 제어"
+20260925-213036,errático,C1,reddit,r/ROS,"불규칙한, 변덕스러운, 예측 불가능한"
+20260925-213036,steep learning curve,B2,reddit,r/ROS,학습하는 데 많은 노력과 시간이 필요한 어려운 과정
+20260925-213036,from scratch,B2,reddit,r/ROS,"처음부터, 맨바닥에서"
+20260925-213036,commit to,B2,reddit,r/ROS,"~하기로 결심하다, 전념하다"
+20260925-213036,pre-allocate,C1,reddit,r/cpp,미리 할당하다
+20260925-213036,wipe out,B2,reddit,r/cpp,"완전히 제거하다, 지우다"
+20260925-213036,social contract,C1,reddit,r/cpp,"사회적 계약, 암묵적 협약"
+20260925-213036,binary packaging,C1,reddit,r/cpp,"바이너리 패키징, 이진 패키지 관리"
+20260925-213036,scriptless,C1,reddit,r/cpp,"스크립트가 필요 없는, 스크립트 없는"
+20260925-213036,pkgconf,C1,reddit,r/cpp,pkgconf (패키지 구성 도구)
+20260925-213036,introspection,C1,reddit,r/cpp,"내성, 자기 성찰; 프로그램이 자신의 구조를 들여다보는 기능"
+20260925-213036,extensibility,C1,reddit,r/cpp,확장성; 기존 코드를 바꾸지 않고 기능을 추가할 수 있는 성질
+20260925-213036,demystify,C1,reddit,r/cpp,"이해하기 쉽게 풀어 설명하다, 신비감을 없애다"
+20260925-213036,type erasure,C1,reddit,r/cpp,타입 소거; 구체적 타입 정보를 감추고 공통 인터페이스로 다루는 기법
+20260925-213036,round-trip,C1,reddit,r/cpp,왕복 변환 (값을 문자열로 바꿨다가 다시 원래 값으로 정확히 복원하는 것)
+20260925-213036,caller-specified,C1,reddit,r/cpp,호출자가 지정한 (함수를 호출하는 쪽에서 정하는)
+20260925-213036,prove correct,C1,reddit,r/cpp,올바름을 증명하다 (수학적으로 정확성을 입증하다)
+20260925-213036,release notes,B2,reddit,r/cpp,릴리스 노트 (소프트웨어 새 버전의 변경 사항을 정리한 문서)
+20260925-213036,stateful,C1,reddit,r/cpp,"상태를 가지는, 상태를 유지하는"
+20260925-213036,constexpr,C1,reddit,r/cpp,컴파일 타임에 평가될 수 있음을 나타내는 C++ 키워드
+20260925-213036,prepend,C1,reddit,r/cpp,"앞에 추가하다, 앞에 붙이다"
+20260925-213036,uncached,C1,reddit,r/cpp,"캐시되지 않은, 캐시에 없는"
+20260925-213036,branchless,C1,reddit,r/cpp,"분기 없는, 분기문을 사용하지 않는"
+20260925-213036,micro-optimize,C1,reddit,r/cpp,"미세 최적화하다, 소규모 최적화를 하다"
+20260925-213036,undersell,C1,reddit,r/cpp,"자신의 가치를 실제보다 낮게 평가하다, 저평가하다"
+20260925-213036,undercut,C1,reddit,r/cpp,"경쟁자보다 낮은 임금이나 가격을 제시하다, (가치를) 깎아내리다"
+20260925-213036,regionality,C1,reddit,r/cpp,"지역성, 지역적 특성"
+20260925-213036,of wide interest,B2,reddit,r/cpp,"많은 사람들의 관심을 끄는, 폭넓은 관심사인"
+20260925-213036,guest post,B2,reddit,r/cpp,"외부 필자가 기고한 글, 게스트 기고문"
+20260925-213036,pre-empt,C1,reddit,r/cpp,"선점하다, 중단시키다"
+20260925-213036,break down,B2,reddit,r/cpp,"분해하다, 세분화하여 설명하다"
+20260925-213036,refactor,C1,reddit,r/cpp,"리팩토링하다, 코드를 개선하다"
+20260925-213036,positively surprised,B2,reddit,r/cpp,기대 이상이라 좋은 쪽으로 놀란
+20260925-213036,from time to time,B2,reddit,r/cpp,"때때로, 이따금"
+20260925-213036,share with,B2,reddit,r/cpp,"~와 공유하다, 알려주다"
+20260925-213036,vendor,C1,reddit,r/cpp,외부 라이브러리 소스 코드를 프로젝트에 직접 포함시키는 것
+20260925-213036,dynamic linking,C1,reddit,r/cpp,동적 링킹; 프로그램 실행 시 라이브러리를 연결하는 방식
+20260925-213036,go into,B2,reddit,r/cpp,"~에 들어가다, ~에 쏟아지다"
+20260925-213036,toolchain,C1,reddit,r/cpp,툴체인; 컴파일러·링커 등 개발 도구의 집합
+20260925-213036,lower,C1,reddit,r/cpp,"(고수준 표현을 저수준으로) 낮추다, 변환하다"
+20260925-213036,instruction selection,C1,reddit,r/cpp,명령어 선택; IR을 대상 기계 명령어로 매핑하는 컴파일 단계
+20260925-213036,go one step further,B2,reddit,r/cpp,한 걸음 더 나아가다
+20260925-213036,formal review,B2,reddit,r/cpp,공식 심사 절차
+20260925-213036,be limited to,B2,reddit,r/cpp,"~에 국한되다, ~로 제한되다"
+20260925-213036,amalgamation,C1,reddit,r/cpp,"통합, 합병; 여러 파일을 하나로 합치는 것"
+20260925-213036,architecture-dependent,C1,reddit,r/cpp,아키텍처에 의존하는
+20260925-213036,go down a rabbit hole,C1,reddit,r/compsci,어떤 주제를 파고들다가 시간 가는 줄 모르고 빠져들다
+20260925-213036,mixed in,B2,reddit,r/compsci,"섞여 있는, 함께 포함된"
+20260925-213036,closed-world,C1,reddit,r/compsci,폐쇄 세계(전체 프로그램을 컴파일 시점에 볼 수 있는) 가정
+20260925-213036,counter-productive,C1,reddit,r/compsci,"역효과를 낳는, 오히려 방해가 되는"
+20260925-213036,from top to bottom,B2,reddit,r/compsci,"위에서 아래까지, 철저히, 완전히"
+20260925-213036,persistently,C1,reddit,r/compsci,"끊임없이, 지속적으로"
+20260925-213036,back and forth,B2,reddit,r/compsci,"앞뒤로, 왔다갔다"
+20260925-213036,turn around,B2,reddit,r/compsci,"방향을 바꾸다, 되돌아가다"
+20260925-213036,play around with,B2,reddit,r/compsci,"~을 가지고 이것저것 해보다, 실험하다"
+20260925-213036,enumeration,C1,reddit,r/compsci,"열거, 목록화; 특히 수학에서 집합의 원소를 순서대로 나열하는 것"
+20260925-213036,posit,C2,reddit,r/compsci,"가정하다, 상정하다; (논의를 위해) 사실이라고 제안하다"
+20260925-213036,obfuscate,C2,reddit,r/compsci,"혼란스럽게 하다, 모호하게 만들다; 의도적으로 이해하기 어렵게 하다"
+20260925-213036,transfinite,C2,reddit,r/compsci,초한의; 무한 집합의 크기를 다루는 수학적 개념
+20260925-213036,performance-critical,C1,reddit,r/compsci,"성능이 매우 중요한, 성능에 민감한"
+20260925-213036,phase transition,C1,reddit,r/compsci,"상전이, 급격한 상태 변화"
+20260925-213036,rejection sampling,C1,reddit,r/compsci,기각 샘플링 (통계적 샘플링 기법)
+20260925-213036,formalise,C1,reddit,r/compsci,"형식화하다, 공식화하다"
+20260925-213036,semantic analysis,B2,reddit,r/compsci,"의미 분석, 프로그램의 의미적 일관성을 검사하는 컴파일 단계"
+20260925-213036,look into,B2,reddit,r/compsci,"~을 조사하다, 검토하다"
+20260925-213036,rabbit hole,C1,reddit,r/compsci,"(끝없이 빠져드는) 복잡한 주제, 빠지면 헤어나기 어려운 일"
+20260925-213036,wrap one's head around,C1,reddit,r/compsci,"이해하다, 머릿속으로 정리하다"
+20260925-213036,mull over,C1,reddit,r/compsci,"곰곰이 생각하다, 숙고하다"
+20260925-213036,inevitability,C1,reddit,r/compsci,"불가피성, 필연성"
+20260925-213036,superfluous,C2,reddit,r/compsci,"불필요한, 과잉의"
+20260925-213036,mundane,C1,reddit,r/compsci,"일상적인, 평범한, 지루한"
+20260925-213036,synthesis,C1,reddit,r/compsci,"합성, 종합 (여기서는 프로그램 합성)"
+20260925-213036,spec sheet,B2,reddit,r/compsci,"사양서, 명세서"
+20260925-213036,along the lines of,C1,reddit,r/compsci,"~와 비슷한, ~에 준하는"
+20260925-213036,supposed to,B2,reddit,r/compsci,"~하기로 되어 있는, ~할 것으로 예상되는"
+20260925-213036,bootstrap,C1,reddit,r/compsci,부트스트래핑(컴파일러가 자기 자신을 컴파일할 수 있도록 초기 환경을 구축하는 과정)
+20260925-213036,self-hosting,C1,reddit,r/compsci,"자기 자신을 호스팅하는, 즉 컴파일러가 자기 자신의 소스 코드를 컴파일할 수 있는 능력"
+20260925-213036,byte-for-byte,C1,reddit,r/compsci,"바이트 단위로 정확히 일치하는, 완전히 동일한"
+20260925-213036,fixed point,C1,reddit,r/compsci,고정점(반복 적용해도 변하지 않는 값이나 상태)
+20260925-213036,discrepancy,C1,reddit,r/compsci,"불일치, 차이"
+20260925-213036,abstraction,C1,reddit,r/compsci,"추상화, 추상적 개념"
+20260925-213036,anonymity,C1,reddit,r/compsci,"익명성, 신원이 드러나지 않는 성질"
+20260925-213036,distinguishable,C1,reddit,r/compsci,"구별 가능한, 식별할 수 있는"
+20260925-213036,precondition,C1,reddit,r/compsci,"전제 조건, 사전 요구 조건"
+20260925-213036,adversary,C1,reddit,r/compsci,"적대자, 공격자 (보안에서의 가상 공격 주체)"
+20260925-213036,come across,B2,reddit,r/compsci,"우연히 발견하다, 마주치다"
+20260925-213036,watermark,C1,reddit,r/compsci,워터마크를 삽입하는 것; 디지털 콘텐츠에 출처나 소유권을 표시하는 은닉 표식
+20260925-213036,catch one's attention,B2,reddit,r/compsci,"주의를 끌다, 눈길을 끌다"
+20260925-213036,leave alone,B2,reddit,r/compsci,"그대로 두다, 간섭하지 않다"
+20260925-213036,collision-prone,C1,reddit,r/compsci,충돌하기 쉬운; 해시 충돌이 발생하기 쉬운
+20260925-213036,harden,C1,reddit,r/compsci,강화; 시스템을 더 견고하게 만드는 것
+20260925-213036,conservatism,C1,reddit,r/compsci,보수성; 신중하게 판단하는 경향
+20260925-213036,pedagogical,C1,reddit,r/compsci,"교육적인, 교육학적인"
+20260925-213036,dispatch,C1,reddit,r/compsci,"디스패치, (함수/메시지) 전달"
+20260925-213036,square one,C1,reddit,r/compsci,"출발점, 원점"
+20260925-213036,interpretability,C1,reddit,r/compsci,"해석 가능성, (모델의 작동 원리를) 이해할 수 있는 정도"
+20260925-213036,entailment,C1,reddit,r/compsci,"함의, (논리적) 수반"
+20260925-213036,swap out,B2,reddit,r/compsci,"교체하다, 바꾸다"
+20260925-213036,sieve,C1,reddit,r/math,체로 거르는 알고리즘; 후보를 걸러내는 절차
+20260925-213036,transposition,C1,reddit,r/math,"전치, 행과 열을 바꾸는 것"
+20260925-213036,worked example,B2,reddit,r/math,풀이 과정을 자세히 보여주는 예제
+20260925-213036,reference work,B2,reddit,r/math,"참고 문헌, 참고서"
+20260925-213036,strike a balance,B2,reddit,r/math,"균형을 이루다, 조화를 이루다"
+20260925-213036,draw from,B2,reddit,r/math,"~에서 가져오다, ~에 근거하다"
+20260925-213036,discourse,C1,reddit,r/math,"담론, 논의"
+20260925-213036,overrepresented,C1,reddit,r/math,과도하게 많이 다루어지는
+20260925-213036,infinitude,C2,reddit,r/math,"무한성, 무수함"
+20260925-213036,relegate,C1,reddit,r/math,"격하시키다, 뒷전으로 밀어내다"
+20260925-213036,constructivism,C1,reddit,r/math,구성주의: 수학적 대상이 존재한다는 것을 증명하기 위해 구체적인 구성 방법을 요구하는 수학 철학
+20260925-213036,finitist,C1,reddit,r/math,유한주의자: 무한한 대상의 사용을 거부하고 유한한 구성만을 허용하는 수학 철학자
+20260925-213036,fundamental theorem of algebra,B2,reddit,r/math,대수학의 기본 정리: 복소수 계수 다항식은 복소수 근을 적어도 하나 가진다는 정리
+20260925-213036,take seriously,B2,reddit,r/math,"진지하게 받아들이다, 중요하게 여기다"
+20260925-213036,closed-form,C1,reddit,r/math,닫힌 형태의 — 유한한 기본 연산으로 표현된 해
+20260925-213036,on the basis that,C1,reddit,r/math,"~라는 근거로, ~라는 이유로"
+20260925-213036,conjecture,C1,reddit,r/math,"추측, 가설 (증명되지 않은 수학적 명제)"
+20260925-213036,advent,C1,reddit,r/math,"도래, 출현"
+20260925-213036,come up with,B2,reddit,r/math,"생각해 내다, 고안하다"
+20260925-213036,look at,B2,reddit,r/math,"살펴보다, 검토하다"
+20260925-213036,topos,C2,reddit,r/math,토포스 (범주론에서 논리와 기하학을 통합하는 수학적 구조)
+20260925-213036,homotopy,C2,reddit,r/math,호모토피 (연속 변형을 통한 위상 공간의 동치 관계)
+20260925-213036,go over,B2,reddit,r/math,"검토하다, 훑어보다, 다시 살펴보다"
+20260925-213036,theoretical physicist,B2,reddit,r/math,이론 물리학자
+20260925-213036,ambiguity,C1,reddit,r/math,"모호성, 중의성"
+20260925-213036,manifold,C1,reddit,r/math,다양체
+20260925-213036,cotangent bundle,C1,reddit,r/math,공변접다발
+20260925-213036,tangent bundle,C1,reddit,r/math,접다발
+20260925-213036,dependently,C1,reddit,r/math,"의존적으로, 상황에 따라 달리"
+20260925-213036,in function of,C1,reddit,r/math,"~에 따라, ~의 함수로서 (비표준 표현)"
+20260925-213036,symplectic,C2,reddit,r/math,"심플렉틱의, 심플렉틱 구조와 관련된"
+20260925-213036,funding agency,B2,reddit,r/math,연구비를 지원하는 기관
+20260925-213036,pure mathematics,B2,reddit,r/math,순수수학(연구자)
+20260925-213036,in the face of,B2,reddit,r/math,"~에도 불구하고, ~에 직면하여"
+20260925-213036,taxpayer funding,B2,reddit,r/math,납세자 지원금
+20260925-213036,arbiter,C1,reddit,r/math,"결정권자, 심판자"
+20260925-213036,numerics,C1,reddit,r/math,"수치적 방법, 수치 계산"
+20260925-213036,nuanced,C1,reddit,r/math,"미묘한 차이가 있는, 세밀한"
+20260925-213036,come to be,B2,reddit,r/math,"(어떻게) 생겨나게 되다, 형성되다"
+20260925-213036,read up on,B2,reddit,r/math,"(특정 주제를) 공부하다, 찾아 읽다"
+20260925-213036,denoising,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"노이즈 제거, 잡음 제거"
+20260925-213036,stochastic,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"확률적인, 무작위의"
+20260925-213036,multimodal,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"다중 모드의, 여러 분포를 가진"
+20260925-213036,receding horizon control,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"이동 지평 제어, 매 단계마다 최적화 구간을 재설정하는 제어 기법"
+20260925-213036,teleoperation,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"원격 조작, 원격 제어"
+20260925-213036,haptic,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"햅틱의, 촉각의"
+20260925-213036,bimanual,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"양손의, 두 손을 사용하는"
+20260925-213036,succinctly,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"간결하게, 요약하여"
+20260925-213036,compounding,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"누적되는, 복합적인; 오차가 쌓여 커지는"
+20260925-213036,prone to,B2,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"~하기 쉬운, ~하는 경향이 있는"
+20260925-213036,pronounced,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"두드러진, 현저한"
+20260925-213036,jittery,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"떨리는, 불안정한; 여기서는 로봇 동작이 매끄럽지 않고 떨리는 것을 의미"
+20260925-213036,sidestep,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"회피하다, 피하다; 문제를 우회하다"
+20260925-213036,intractable,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"다루기 어려운, 해결하기 힘든; 계산 불가능한"
+20260925-213036,bring to bear,C1,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,"적용하다, 동원하다; (영향력, 지식 등을) 행사하다"
+20260925-213036,emergent,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"창발적인, 예상치 못하게 나타나는"
+20260925-213036,co-fine-tune,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,공동으로 미세 조정하다
+20260925-213036,instantiate,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"구체적인 예로 실현하다, 인스턴스화하다"
+20260925-213036,rudimentary,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"기초적인, 원시적인"
+20260925-213036,proprietary,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"독점적인, 사유의; 특정 회사가 소유한"
+20260925-213036,instantiation,C2,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"구체적인 예시, 인스턴스화; 추상적 개념의 실제 구현"
+20260925-213036,performant,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"성능이 좋은, 효율적인"
+20260925-213036,by virtue of,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"~때문에, ~의 힘으로"
+20260925-213036,quantization,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,양자화
+20260925-213036,distillation,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"증류, 지식 증류"
+20260925-213036,disambiguate,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"모호함을 제거하다, 명확히 구분하다"
+20260925-213036,precariously,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"위태롭게, 불안정하게"
+20260925-213036,have an edge,B2,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,"우위를 점하다, 유리하다"
+20260925-213036,discretize,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,이산화하다
+20260925-213036,expressiveness,C1,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,표현력
+20260925-213036,unification,C1,paper,Control Barrier Functions: Theory and Applications,"통일, 통합"
+20260925-213036,saturation,C1,paper,Control Barrier Functions: Theory and Applications,포화 (입력이나 신호가 한계에 도달함)
+20260925-213036,certificate,C1,paper,Control Barrier Functions: Theory and Applications,"증명서, (안전성 등의) 보증 자료"
+20260925-213036,relaxation,C1,paper,Control Barrier Functions: Theory and Applications,"(제약의) 완화, 이완"
+20260925-213036,stabilization,C1,paper,Control Barrier Functions: Theory and Applications,안정화
+20260925-213036,asymptotic,C1,paper,Control Barrier Functions: Theory and Applications,점근적인
+20260925-213036,controllability,C1,paper,Control Barrier Functions: Theory and Applications,제어 가능성
+20260925-213036,invariance,C1,paper,Control Barrier Functions: Theory and Applications,불변성
+20260925-213036,tessellation,C1,paper,Control Barrier Functions: Theory and Applications,"테셀레이션, 쪽매맞춤"
+20260925-213036,safety-critical,C1,paper,Control Barrier Functions: Theory and Applications,"안전이 중요한, 안전 필수적인"
+20260925-213036,liveness,C1,paper,Control Barrier Functions: Theory and Applications,"활성, 라이브니스 (시스템이 계속 동작함)"
+20260925-213036,viability,C1,paper,Control Barrier Functions: Theory and Applications,"생존 가능성, 실행 가능성"
+20260925-213036,survivability,C1,paper,Control Barrier Functions: Theory and Applications,"생존 가능성, 특히 로봇이 장기간 임무를 지속할 수 있는 능력"
+20260925-213036,reformulate,C1,paper,Control Barrier Functions: Theory and Applications,"재구성하다, 문제를 다른 형태로 다시 정식화하다"
+20260925-213036,quadratically,C1,paper,Control Barrier Functions: Theory and Applications,"이차적으로, 제곱에 비례하여"
+20260925-213036,transduction,C1,paper,Attention Is All You Need,한 시퀀스를 다른 시퀀스로 변환하는 과정 (예: 기계 번역)
+20260925-213036,dispense with,C1,paper,Attention Is All You Need,"~을 없애다, ~없이 하다"
+20260925-213036,parallelizable,C1,paper,Attention Is All You Need,병렬화할 수 있는
+20260925-213036,constituency parsing,C1,paper,Attention Is All You Need,구문 구조를 분석하는 자연어 처리 기법
+20260925-213036,contiguous,C1,paper,Attention Is All You Need,"인접한, 연속된"
+20260925-213036,dilated,C1,paper,Attention Is All You Need,"확장된, 팽창된 (여기서는 dilated convolution: 확장 합성곱)"
+20260925-213036,syntactic,C1,paper,Attention Is All You Need,"구문론적인, 통사적인"
+20260925-213036,regime,C1,paper,Attention Is All You Need,"체제, 방식, 조건 (여기서는 training regime: 훈련 방식)"
+20260925-213036,albeit,C1,paper,Attention Is All You Need,비록 ~이긴 하지만
+20260925-213036,counteract,C1,paper,Attention Is All You Need,"상쇄하다, 대응하다"
+20260925-213036,abstractive,C2,paper,Attention Is All You Need,"추상적인, 요약 생성 방식의 (원문 표현을 그대로 쓰지 않고 새로 생성하는)"
+20260925-213036,auto-regressive,C1,paper,Attention Is All You Need,자기회귀적인 (이전 출력을 다음 입력으로 사용하는)
+20260925-213036,perplexity,C1,paper,Attention Is All You Need,"당혹도, 언어 모델의 성능 지표"
+20260925-213036,drop off,B2,paper,Attention Is All You Need,"떨어지다, 감소하다"
+20260925-213036,inhibit,C1,paper,Attention Is All You Need,"억제하다, 방해하다"
+20260925-213036,paradigm,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"패러다임, 이론적 틀"
+20260925-213036,prohibitively,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"엄청나게, 감당할 수 없을 정도로"
+20260925-213036,shed light on,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"~을 밝히다, 해명하다"
+20260925-213036,mitigate,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"완화하다, 경감하다"
+20260925-213036,semi-orthogonal,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"준직교의, 반직교의"
+20260925-213036,compositionality,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"합성성, 구성성"
+20260925-213036,prevail,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"우세하다, 이기다"
+20260925-213036,corroborate,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"뒷받침하다, 확증하다"
+20260925-213036,monotonically,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,단조롭게
+20260925-213036,suffice,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"충분하다, ~하기에 족하다"
+20260925-213036,intrinsic,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"내재적인, 고유의"
+20260925-213036,disentangle,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"얽힌 것을 풀다, 분리하다"
+20260925-213036,factorize,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"인수분해하다, 요인으로 분해하다"
+20260925-213036,overparameterized,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,"과매개변수화된, 매개변수가 과도하게 많은"
+20260925-213036,alternating minimization,C1,paper,LoRA: Low-Rank Adaptation of Large Language Models,교대 최소화 (최적화 기법)

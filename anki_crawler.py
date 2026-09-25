@@ -42,6 +42,7 @@ DEFAULT_CONFIG = {
     "minPostChars": 300,
     "maxPostChars": 6000,
     "maxPostsPerRun": 12,
+    "fetchLimit": 50,
     "deckName": "English::reddit-vocab",
     "paperDeckName": "English::paper-vocab",
     "paperMaxWords": 15,
@@ -172,7 +173,7 @@ def parse_feed(raw, subreddit):
 def fetch_posts(config):
     posts = []
     for subreddit in config["subreddits"]:
-        url = f"https://www.reddit.com/r/{subreddit}/{config['listing']}/.rss?t={config['timeRange']}&limit=50"
+        url = f"https://www.reddit.com/r/{subreddit}/{config['listing']}/.rss?t={config['timeRange']}&limit={config.get('fetchLimit', 50)}"
         for attempt in range(3):
             try:
                 posts.extend(parse_feed(http_get(url), subreddit))
@@ -191,7 +192,7 @@ def fetch_posts(config):
 
 # ---------- llm ----------
 
-def call_llm(config, api_key, title, body, avoid, count, kind="Reddit post"):
+def call_llm(config, api_key, title, body, avoid, count, kind="Reddit post", usage=None):
     prompt = PROMPT.format(kind=kind, count=count, avoid=", ".join(avoid) or "(none)", title=title, body=body)
     payload = {
         "model": config["llmModel"],
@@ -205,7 +206,11 @@ def call_llm(config, api_key, title, body, avoid, count, kind="Reddit post"):
         headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
     )
     with urllib.request.urlopen(request, timeout=120) as response:
-        content = json.loads(response.read())["choices"][0]["message"]["content"]
+        reply = json.loads(response.read())
+    content = reply["choices"][0]["message"]["content"]
+    if usage is not None:  # token accounting for eval
+        for key in ("prompt_tokens", "completion_tokens"):
+            usage[key] = usage.get(key, 0) + reply.get("usage", {}).get(key, 0)
     items = json.loads(content).get("items", [])
     return items if isinstance(items, list) else []
 
@@ -214,23 +219,33 @@ def normalize(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
-def valid_item(item, body):
+def reject_reason(item, body):
+    """None if the item passes every quality filter, else the first failing check."""
     if not isinstance(item, dict):
-        return False
+        return "schema"
     fields = ("word", "definition", "reddit_sentence", "academic_example")
     if not all(isinstance(item.get(f), str) and item[f].strip() for f in fields):
-        return False
+        return "schema"
     # Hard single words only; multi-word expressions (idioms, collocations) may be B2.
     level = str(item.get("cefr", "C1")).upper()[:2]
     if level not in ("C1", "C2") and not (level == "B2" and " " in item["word"].strip()):
-        return False
-    sentence = normalize(item["reddit_sentence"])
-    # The example must be a real sentence from the post and must contain the word.
-    if len(sentence) < 20 or sentence.lower() not in normalize(body).lower():
-        return False
+        return "cefr"
+    if not sentence_in_source(item, body):
+        return "not_verbatim"
     surface = (item.get("surface") or item["word"]).lower()
     stem = item["word"].lower().split()[0][:max(4, len(item["word"].split()[0]) - 2)]
-    return surface in sentence.lower() or stem in sentence.lower()
+    sentence = normalize(item["reddit_sentence"]).lower()
+    return None if surface in sentence or stem in sentence else "word_missing"
+
+
+def sentence_in_source(item, body):
+    # The example must be a real sentence from the source text (guards against invented examples).
+    sentence = normalize(item["reddit_sentence"])
+    return len(sentence) >= 20 and sentence.lower() in normalize(body).lower()
+
+
+def valid_item(item, body):
+    return reject_reason(item, body) is None
 
 
 def highlight(sentence, item):
@@ -467,9 +482,17 @@ PDFTOTEXT = "/opt/homebrew/bin/pdftotext"
 def paper_text(source):
     """Return (title, url, body) for a PDF path, .txt/.md path, arXiv/PDF/HTML URL."""
     url = source if re.match(r"https?://", source) else ""
+    arxiv_title = ""
     if url:
         arxiv = re.search(r"arxiv\.org/(?:abs|pdf|html)/([\w.\-/]+?)(?:v\d+)?(?:\.pdf)?$", url)
         fetch = f"https://arxiv.org/pdf/{arxiv.group(1)}" if arxiv else url
+        if arxiv:  # PDF metadata titles are unreliable; the abs page has the official one
+            try:
+                page = http_get(f"https://arxiv.org/abs/{arxiv.group(1)}").decode("utf-8", "replace")
+                found = re.search(r'<meta name="citation_title" content="([^"]+)"', page)
+                arxiv_title = html.unescape(found.group(1)).strip() if found else ""
+            except (urllib.error.URLError, OSError):
+                pass
         raw = http_get(fetch, timeout=60)
         if raw[:4] != b"%PDF":
             text = html_to_text(raw.decode("utf-8", "replace"))
@@ -490,6 +513,8 @@ def paper_text(source):
                           timeout=120, check=True).stdout
     info = subprocess.run([PDFTOTEXT.replace("pdftotext", "pdfinfo"), str(path)], capture_output=True, text=True,
                           timeout=30).stdout
+    if arxiv_title:
+        return arxiv_title, url, clean_paper(text)
     title = re.search(r"^Title:\s*(.+)$", info, re.M)
     title = title.group(1).strip() if title and len(title.group(1).strip()) > 8 else ""
     if not title:
@@ -521,6 +546,11 @@ def chunks(body, size=4500):
     return out
 
 
+def spread_order(count):
+    """Chunk visiting order spread across the paper (intro, method, results) instead of front pages only."""
+    return sorted(range(count), key=lambda i: (i * 7919) % count) if count > 1 else [0]
+
+
 def run_paper(source, deck=None, max_words=None):
     config = load_config()
     deck = deck or config["paperDeckName"]
@@ -536,7 +566,7 @@ def run_paper(source, deck=None, max_words=None):
     day = now_kst().date().isoformat()
     parts = chunks(body)
     # spread picks across the paper (intro, method, results, discussion) rather than the first pages only
-    order = sorted(range(len(parts)), key=lambda i: (i * 7919) % len(parts)) if len(parts) > 1 else [0]
+    order = spread_order(len(parts))
     post = {"subreddit": "paper", "title": title[:200], "url": url}
     added, skipped_known = [], 0
     for index in order[:10]:
