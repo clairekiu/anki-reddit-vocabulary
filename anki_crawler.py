@@ -390,6 +390,7 @@ def write_summary(db, day, error=""):
         "added_today": len(rows),
         "words": [{"word": r["word"], "definition": r["definition"], "cefr": r["cefr"] or "",
                    "sentence": html.unescape(re.sub(r"<[^>]+>", "", r["reddit_sentence"] or "")),
+                   "highlight": html.unescape((re.search(r"<b>(.*?)</b>", r["reddit_sentence"] or "") or [None, ""])[1]),
                    "academic": r["academic_example"], "subreddit": r["subreddit"], "url": r["post_url"]} for r in rows],
         "pending": db.execute("SELECT COUNT(*) FROM cards WHERE anki_note_id IS NULL").fetchone()[0],
         "total_cards": db.execute("SELECT COUNT(*) FROM cards").fetchone()[0],
