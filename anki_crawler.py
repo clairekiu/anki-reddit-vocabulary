@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Reddit posts -> LLM vocabulary extraction -> Anki cards (10-15 new words a day, no duplicates)."""
+"""Reddit posts or papers -> LLM vocabulary extraction -> Anki cards (no duplicates).
+
+Daily mode: 10-15 new words from subreddits.  Paper mode: `--paper <pdf|url|txt>` on demand.
+"""
+import hashlib
+import tempfile
 import argparse
 import html
 import json
@@ -38,6 +43,8 @@ DEFAULT_CONFIG = {
     "maxPostChars": 6000,
     "maxPostsPerRun": 12,
     "deckName": "English::reddit-vocab",
+    "paperDeckName": "English::paper-vocab",
+    "paperMaxWords": 15,
     "modelName": "vocab (eng)",
     "ankiUrl": "http://127.0.0.1:8765",
     "llmUrl": "https://api.deepseek.com/chat/completions",
@@ -45,7 +52,7 @@ DEFAULT_CONFIG = {
 }
 
 PROMPT = """You are building English vocabulary flashcards for a Korean robotics/mechanical engineering graduate student (English level: upper-intermediate).
-From the Reddit post below, extract up to {count} vocabulary items that are useful for robotics, CS, math, or academic/technical discussion, at CEFR B2-C2 level.
+From the {kind} below, extract up to {count} vocabulary items that are useful for robotics, CS, math, or academic/technical discussion, at CEFR B2-C2 level.
 Include idioms and phrasal verbs if useful. Prefer words that are hard for Korean learners: academic verbs, nuanced adjectives, collocations, idioms, phrasal verbs (e.g. "formulate", "tractable", "rule of thumb", "iron out").
 Skip words a Korean engineering graduate student surely knows already (e.g. facility, capacity, robot, algorithm, numerical, humanoid, sparse, linear system),
 basic words, proper nouns, product names, code identifiers and acronyms. Fewer good items is better than padding.
@@ -53,16 +60,16 @@ Do NOT pick any of these already-learned words: {avoid}
 
 Return JSON only: {{"items": [{{
   "word": "headword in dictionary form (lemma)",
-  "surface": "the exact form as it appears in the post",
+  "surface": "the exact form as it appears in the text",
   "pronunciation": "Korean Hangul transcription of the American pronunciation, stress syllable unmarked, e.g. 포뮬레이트",
   "cefr": "honest CEFR level of the headword: B1, B2, C1 or C2",
   "definition": "concise Korean meaning in this context",
-  "reddit_sentence": "ONE sentence copied VERBATIM from the post that contains the word",
+  "reddit_sentence": "ONE sentence copied VERBATIM from the text that contains the word",
   "academic_example": "a new English sentence as it might appear in a robotics/engineering paper or interview"
 }}]}}
 
-POST TITLE: {title}
-POST BODY:
+TITLE: {title}
+TEXT:
 {body}"""
 
 
@@ -113,7 +120,7 @@ def connect(path=None):
         """
     )
     columns = [r[1] for r in db.execute("PRAGMA table_info(cards)")]
-    for column in ("cefr", "pronunciation"):
+    for column in ("cefr", "pronunciation", "source", "deck"):
         if column not in columns:
             db.execute(f"ALTER TABLE cards ADD COLUMN {column} TEXT")
     return db
@@ -124,7 +131,8 @@ def word_key(word):
 
 
 def added_today(db, day):
-    return db.execute("SELECT COUNT(*) FROM cards WHERE created_date = ?", (day,)).fetchone()[0]
+    return db.execute("SELECT COUNT(*) FROM cards WHERE created_date = ? AND COALESCE(source, 'reddit') = 'reddit'",
+                      (day,)).fetchone()[0]
 
 
 # ---------- reddit ----------
@@ -183,8 +191,8 @@ def fetch_posts(config):
 
 # ---------- llm ----------
 
-def call_llm(config, api_key, title, body, avoid, count):
-    prompt = PROMPT.format(count=count, avoid=", ".join(avoid) or "(none)", title=title, body=body)
+def call_llm(config, api_key, title, body, avoid, count, kind="Reddit post"):
+    prompt = PROMPT.format(kind=kind, count=count, avoid=", ".join(avoid) or "(none)", title=title, body=body)
     payload = {
         "model": config["llmModel"],
         "messages": [{"role": "user", "content": prompt}],
@@ -303,17 +311,23 @@ def push_pending(db, config):
     if not ensure_anki_running(anki):
         log(f"AnkiConnect unavailable; {len(rows)} card(s) kept pending")
         return 0, False
-    anki.call("createDeck", deck=config["deckName"])
+    for deck in {row["deck"] or config["deckName"] for row in rows}:
+        anki.call("createDeck", deck=deck)
     if config["modelName"] not in anki.call("modelNames"):  # user's own note type; never created here
         raise RuntimeError(f"Anki note type not found: {config['modelName']}")
     pushed = 0
     for row in rows:
-        source = f"r/{html.escape(row['subreddit'])} · <a href='{html.escape(row['post_url'])}'>{html.escape(row['post_title'])}</a>"
+        if row["source"] == "paper":
+            source = f"📄 {html.escape(row['post_title'])}"
+            tags = ["paper_auto", row["created_date"]]
+        else:
+            source = f"r/{html.escape(row['subreddit'])} · <a href='{html.escape(row['post_url'])}'>{html.escape(row['post_title'])}</a>"
+            tags = ["reddit_auto", f"r_{row['subreddit']}", row["created_date"]]
         note = {
-            "deckName": config["deckName"],
+            "deckName": row["deck"] or config["deckName"],
             "modelName": config["modelName"],
             "fields": note_fields(row, source),
-            "tags": ["reddit_auto", f"r_{row['subreddit']}", row["created_date"]] + ([row["cefr"]] if row["cefr"] else []),
+            "tags": tags + ([row["cefr"]] if row["cefr"] else []),
             "options": {"allowDuplicate": False, "duplicateScope": "deck"},
         }
         try:
@@ -338,6 +352,18 @@ def push_pending(db, config):
 
 
 # ---------- pipeline ----------
+
+def insert_card(db, key, item, post, day, source, deck):
+    db.execute(
+        "INSERT INTO cards (word_key, word, definition, reddit_sentence, academic_example, subreddit, post_title,"
+        " post_url, created_date, created_at, cefr, pronunciation, source, deck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        (key, item["word"].strip(), item["definition"].strip(),
+         highlight(normalize(item["reddit_sentence"]), item), item["academic_example"].strip(),
+         post["subreddit"], post["title"], post["url"], day, time.time(),
+         str(item.get("cefr", "")).upper()[:2] or None, str(item.get("pronunciation") or "").strip() or None,
+         source, deck),
+    )
+
 
 def collect(db, config, api_key, target):
     known = {r[0] for r in db.execute("SELECT word_key FROM cards")}
@@ -365,14 +391,7 @@ def collect(db, config, api_key, target):
             key = word_key(item["word"])
             if not key or key in known:
                 continue
-            db.execute(
-                "INSERT INTO cards (word_key, word, definition, reddit_sentence, academic_example, subreddit,"
-                " post_title, post_url, created_date, created_at, cefr, pronunciation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-                (key, item["word"].strip(), item["definition"].strip(),
-                 highlight(normalize(item["reddit_sentence"]), item), item["academic_example"].strip(),
-                 post["subreddit"], post["title"], post["url"], day, time.time(),
-                 str(item.get("cefr", "")).upper()[:2] or None, str(item.get("pronunciation") or "").strip() or None),
-            )
+            insert_card(db, key, item, post, day, "reddit", config["deckName"])
             known.add(key)
             added += 1
             per_post += 1
@@ -384,7 +403,8 @@ def collect(db, config, api_key, target):
 
 
 def write_summary(db, day, error=""):
-    rows = db.execute("SELECT * FROM cards WHERE created_date = ? ORDER BY id", (day,)).fetchall()
+    rows = db.execute("SELECT * FROM cards WHERE created_date = ? AND COALESCE(source, 'reddit') = 'reddit'"
+                      " ORDER BY id", (day,)).fetchall()
     summary = {
         "date": day,
         "added_today": len(rows),
@@ -439,9 +459,134 @@ def run(dry_run=False, force=False):
     return 1 if error and not summary["added_today"] else 0
 
 
+# ---------- paper ----------
+
+PDFTOTEXT = "/opt/homebrew/bin/pdftotext"
+
+
+def paper_text(source):
+    """Return (title, url, body) for a PDF path, .txt/.md path, arXiv/PDF/HTML URL."""
+    url = source if re.match(r"https?://", source) else ""
+    if url:
+        arxiv = re.search(r"arxiv\.org/(?:abs|pdf|html)/([\w.\-/]+?)(?:v\d+)?(?:\.pdf)?$", url)
+        fetch = f"https://arxiv.org/pdf/{arxiv.group(1)}" if arxiv else url
+        raw = http_get(fetch, timeout=60)
+        if raw[:4] != b"%PDF":
+            text = html_to_text(raw.decode("utf-8", "replace"))
+            title = re.search(r"(?is)<title>(.*?)</title>", raw.decode("utf-8", "replace"))
+            return (html.unescape(title.group(1)).strip() if title else url), url, clean_paper(text)
+        handle = tempfile.NamedTemporaryFile(suffix=".pdf", delete=False)
+        handle.write(raw)
+        handle.close()
+        path = Path(handle.name)
+    else:
+        path = Path(source).expanduser()
+        if not path.exists():
+            raise FileNotFoundError(source)
+    if path.suffix.lower() in (".txt", ".md"):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        return path.stem, url or str(path), clean_paper(text)
+    text = subprocess.run([PDFTOTEXT, "-enc", "UTF-8", str(path), "-"], capture_output=True, text=True,
+                          timeout=120, check=True).stdout
+    info = subprocess.run([PDFTOTEXT.replace("pdftotext", "pdfinfo"), str(path)], capture_output=True, text=True,
+                          timeout=30).stdout
+    title = re.search(r"^Title:\s*(.+)$", info, re.M)
+    title = title.group(1).strip() if title and len(title.group(1).strip()) > 8 else ""
+    if not title:
+        title = next((l.strip() for l in text.splitlines() if 15 <= len(l.strip()) <= 200), path.stem)
+    return title, url or path.name, clean_paper(text)
+
+
+def clean_paper(text):
+    text = re.sub(r"(\w)-\n(\w)", r"\1\2", text)          # undo end-of-line hyphenation
+    text = text.replace("\f", "\n")
+    cut = [m.start() for m in re.finditer(r"\n\s*(References|REFERENCES|Bibliography|BIBLIOGRAPHY)\s*\n", text)]
+    if cut and cut[-1] > len(text) * 0.4:
+        text = text[:cut[-1]]
+    paragraphs = [normalize(p) for p in re.split(r"\n\s*\n", text)]
+    # drop page numbers, captions-only fragments, equations and table rows
+    return "\n".join(p for p in paragraphs if len(p) > 60 and len(re.findall(r"[a-zA-Z]{3,}", p)) > 8)
+
+
+def chunks(body, size=4500):
+    sentences = re.split(r"(?<=[.!?])\s+", body)
+    out, current = [], ""
+    for sentence in sentences:
+        if len(current) + len(sentence) > size and current:
+            out.append(current)
+            current = ""
+        current += sentence + " "
+    if current.strip():
+        out.append(current)
+    return out
+
+
+def run_paper(source, deck=None, max_words=None):
+    config = load_config()
+    deck = deck or config["paperDeckName"]
+    max_words = max_words or config["paperMaxWords"]
+    api_key = load_env().get("DEEPSEEK_API_KEY")
+    if not api_key:
+        raise RuntimeError("DEEPSEEK_API_KEY missing in .env")
+    title, url, body = paper_text(source)
+    if len(body) < 500:
+        raise RuntimeError("could not extract enough text from the paper (scanned PDF?)")
+    db = connect()
+    known = {r[0] for r in db.execute("SELECT word_key FROM cards")}
+    day = now_kst().date().isoformat()
+    parts = chunks(body)
+    # spread picks across the paper (intro, method, results, discussion) rather than the first pages only
+    order = sorted(range(len(parts)), key=lambda i: (i * 7919) % len(parts)) if len(parts) > 1 else [0]
+    post = {"subreddit": "paper", "title": title[:200], "url": url}
+    added, skipped_known = [], 0
+    for index in order[:10]:
+        if len(added) >= max_words:
+            break
+        try:
+            items = call_llm(config, api_key, title, parts[index], sorted(known)[-300:],
+                             min(8, max_words - len(added) + 3), kind="research paper excerpt")
+        except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as error:
+            log(f"LLM failed for chunk {index}: {error}")
+            continue
+        per_chunk = 0
+        for item in items:
+            if len(added) >= max_words or per_chunk >= 4:
+                break
+            if not valid_item(item, parts[index]):
+                continue
+            key = word_key(item["word"])
+            if not key:
+                continue
+            if key in known:
+                skipped_known += 1
+                continue
+            insert_card(db, key, item, post, day, "paper", deck)
+            known.add(key)
+            added.append({"word": item["word"].strip(), "cefr": str(item.get("cefr", "")).upper()[:2],
+                          "meaning": item["definition"].strip()})
+            per_chunk += 1
+        db.commit()
+        log(f"chunk {index + 1}/{len(parts)}: +{per_chunk}")
+    pushed, ok = push_pending(db, config)
+    return {"title": title, "deck": deck, "added": added, "skippedAlreadyKnown": skipped_known,
+            "pushedToAnki": pushed, "ankiAvailable": ok, "synced": ok,
+            "pending": db.execute("SELECT COUNT(*) FROM cards WHERE anki_note_id IS NULL").fetchone()[0]}
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="collect only; do not push to Anki or briefing")
     parser.add_argument("--force", action="store_true", help="run even when disabled")
+    parser.add_argument("--paper", metavar="PDF_OR_URL", help="extract words from one paper instead of Reddit")
+    parser.add_argument("--deck", help="deck for --paper (default: paperDeckName)")
+    parser.add_argument("--max", type=int, help="max new words for --paper")
     args = parser.parse_args()
+    if args.paper:
+        try:
+            result = run_paper(args.paper, args.deck, args.max)
+        except Exception as error:
+            print(json.dumps({"error": f"{type(error).__name__}: {error}"[:300]}, ensure_ascii=False))
+            sys.exit(1)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        sys.exit(0)
     sys.exit(run(dry_run=args.dry_run, force=args.force))

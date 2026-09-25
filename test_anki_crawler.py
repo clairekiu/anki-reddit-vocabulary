@@ -60,6 +60,25 @@ class CrawlerTests(unittest.TestCase):
             self.assertEqual(again, 0)
             self.assertEqual(db.execute("SELECT COUNT(*) FROM cards").fetchone()[0], 2)
 
+    def test_clean_paper_joins_hyphens_and_drops_references(self):
+        raw = ("Introduction\n\nWe propose a tract-\nable formulation that decouples the whole-body controller from the planner "
+               "and remains robust to model mismatch across many hardware platforms in practice.\n\n3\n\n"
+               + "Body text sentence with enough words to count here. " * 30 +
+               "\nReferences\n[1] A. Author. Some cited paper title that should be removed entirely from the text.\n")
+        text = ac.clean_paper(raw)
+        self.assertIn("tractable formulation", text)
+        self.assertNotIn("Some cited paper", text)
+        self.assertNotIn("\n3\n", text)
+
+    def test_paper_cards_do_not_count_toward_reddit_daily_quota(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            db = ac.connect(Path(tmp) / "s.db")
+            item = {"word": "tractable", "definition": "d", "academic_example": "a",
+                    "reddit_sentence": "The problem is tractable in practice."}
+            ac.insert_card(db, "tractable", item, {"subreddit": "paper", "title": "t", "url": "u"}, "2026-09-25",
+                           "paper", "English::paper-vocab")
+            self.assertEqual(ac.added_today(db, "2026-09-25"), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
