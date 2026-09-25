@@ -1,0 +1,52 @@
+.anki-main .intro b{color:var(--ink);font-weight:600}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--ink);padding:18px 0 14px}
+.block-head p{margin:0;font-size:13px}
+.error-banner{margin:-22px 0 32px;padding:12px 16px;border-left:3px solid var(--alert);background:var(--wash);color:var(--alert);font-size:14px}
+.anki-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:48px;align-items:start}
+.anki-side{position:sticky;top:24px;display:flex;flex-direction:column;gap:36px}
+.word-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-left:1px solid var(--line)}
+.word-card{padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-width:0}
+.word-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.word-top h3{font-size:22px}
+.cefr{flex:0 0 auto;font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;padding:3px 7px;border:1px solid var(--line);color:var(--muted)}
+.cefr.c-c1{border-color:var(--ink);color:var(--ink)}
+.cefr.c-c2{background:var(--ink);border-color:var(--ink);color:var(--wash)}
+.meaning{margin:0;color:var(--ink);font-size:15px}
+.word-card blockquote{margin:4px 0 0;padding:10px 12px;background:var(--wash);border-left:2px solid var(--ink);font-size:14px;font-style:italic;overflow-wrap:anywhere}
+.word-card mark{background:none;color:var(--ink);font-weight:700;font-style:normal;text-decoration:underline;text-underline-offset:3px}
+.academic{margin:0;font-size:13px}
+.source{margin-top:auto;padding-top:6px;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-decoration:none}
+.phone{background:var(--wash);border:1px solid var(--line);padding:14px;border-radius:18px}
+.chat-head{display:flex;align-items:center;gap:10px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+.chat-head i{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f7b3c8,#b9a7f5)}
+.chat-head span{display:flex;flex-direction:column;line-height:1.2}.chat-head strong{font-size:14px}.chat-head small{font-size:11px;color:var(--muted)}
+.bubble{position:relative;background:#fff;color:#111;border-radius:14px 14px 14px 4px;padding:12px 14px 22px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.bubble pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 -apple-system,BlinkMacSystemFont,sans-serif;max-height:520px;overflow:auto}
+.bubble time{position:absolute;right:10px;bottom:6px;font-size:10px;color:#999}
+.side-settings .switch-row{padding-top:4px}
+.side-settings .actions{margin-top:16px;display:grid;grid-template-columns:1fr 1fr}
+.side-settings .actions button{min-height:42px}
+.log-block{margin-top:48px}
+.log-block pre{margin:0;max-height:280px;overflow:auto;padding:16px;background:var(--wash);white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace}
+@media(min-width:1280px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.anki-layout{grid-template-columns:minmax(0,1fr) 400px}}
+@media(max-width:1000px){.anki-layout{grid-template-columns:1fr;gap:36px}.anki-side{position:static}}
+@media(max-width:640px){.word-grid{grid-template-columns:1fr}.word-card{padding:16px}.word-top h3{font-size:20px}.error-banner{margin:-12px 0 24px}.side-settings .actions{grid-template-columns:1fr}.bubble pre{max-height:none}}
+@media(prefers-color-scheme:dark){.bubble{background:#2b2b2b;color:#eee}.bubble time{color:#888}}
+@media(max-width:520px){.anki-main .status-grid{grid-template-columns:1fr 1fr}.anki-main .status-grid article{padding:12px}.anki-main .status-grid strong{font-size:19px;margin:4px 0}.anki-main .status-grid span{font-size:12px}.word-card .academic{display:none}}
+
+.sub-field{padding-bottom:20px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.sub-label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}.sub-label small{color:var(--muted);font-size:12px}
+.tag-box{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px;border:1px solid var(--line);min-height:48px;cursor:text}
+.tag-box:focus-within{border-color:var(--ink)}
+.tags{display:contents}.suggest .tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-flex;align-items:center;gap:2px;padding:4px 4px 4px 10px;background:var(--ink);color:var(--wash);font:13px ui-monospace,SFMono-Regular,Menlo,monospace;border-radius:999px;line-height:1.4}
+.tag a{color:inherit;text-decoration:none}
+.tag button{border:0;background:none;color:inherit;padding:0 6px;font-size:16px;line-height:1;opacity:.7}
+.tag button:hover{opacity:1}
+.tag.ghost{background:none;color:var(--muted);border:1px dashed var(--line);padding:4px 10px}
+.tag.ghost:hover{color:var(--ink);border-color:var(--ink);opacity:1}
+#sub-input{flex:1 1 120px;min-width:120px;border:0;outline:0;background:none;padding:6px 4px;font:14px ui-monospace,SFMono-Regular,Menlo,monospace}
+.suggest{margin-top:12px}.suggest small{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
+@media(max-width:640px){.tag{padding:7px 6px 7px 12px;font-size:14px}.tag button{padding:0 8px;font-size:18px}.tag.ghost{padding:7px 12px}#sub-input{font-size:16px;min-height:36px}}
+@media(prefers-color-scheme:dark){.tag{background:#f2f2f2;color:#111}.tag.ghost{background:none;color:var(--muted)}}
+@media(max-width:1000px){.anki-layout{display:flex;flex-direction:column}.anki-side{display:contents}.side-settings{order:-1}.preview{order:2}}

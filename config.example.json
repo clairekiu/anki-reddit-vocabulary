@@ -1,0 +1,12 @@
+{
+  "deckName": "English::reddit-vocab",
+  "subreddits": [
+    "robotics",
+    "MachineLearning",
+    "ControlTheory",
+    "ROS",
+    "cpp",
+    "compsci",
+    "math"
+  ]
+}

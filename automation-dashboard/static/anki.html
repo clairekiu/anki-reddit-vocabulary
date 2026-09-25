@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reddit 영어 단어</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/anki.css"><script src="/anki.js" defer></script></head>
+<body><header><div class="header-left"><a id="home-link" class="home-link" href="/" aria-label="자동화 목록">←</a><a class="brand" href="/"><strong>Automation</strong><small>전체 자동화</small></a></div><div class="header-right"><div class="live" id="connection">연결 중</div></div></header>
+<main class="detail-main anki-main">
+<section class="intro"><p class="eyebrow">REDDIT → ANKI</p><h1>Reddit 영어 단어</h1><p>매일 20:30 로보틱스·ML 레딧 글에서 C1 이상 새 단어 10~15개를 원문 예문과 함께 <b>English::reddit-vocab</b>에 넣고 AnkiWeb 동기화까지 합니다.</p></section>
+<div id="notice" role="status" hidden></div>
+<section class="status-grid"><article><small>서비스</small><strong id="state">확인 중</strong><span id="last-run">—</span></article><article><small>오늘 추가</small><strong id="today">—</strong><span id="levels">—</span></article><article><small>누적</small><strong id="total">—</strong><span>중복 없는 카드</span></article><article><small>보류</small><strong id="pending">—</strong><span>Anki 전송 대기</span></article></section>
+<div id="error-banner" class="error-banner" hidden></div>
+<div class="anki-layout">
+  <section class="anki-words"><div class="block-head"><h2>오늘의 단어</h2><p id="word-count">—</p></div><div id="words" class="word-grid"></div></section>
+  <aside class="anki-side">
+    <section class="preview"><div class="block-head"><h2>21시 알림 미리보기</h2><p>Hermes 유나 → Telegram · 매일 21:00 · 통합 브리핑 원문 그대로</p></div>
+      <div class="phone"><div class="chat-head"><i></i><span><strong>유나</strong><small>Telegram</small></span></div><div class="bubble"><pre id="briefing">—</pre><time>21:00</time></div></div>
+    </section>
+    <section class="side-settings"><div class="block-head"><h2>실행 설정</h2><p>끄면 수집도, 21시 브리핑의 단어 섹션도 빠집니다.</p></div>
+      <form id="settings"><div class="sub-field"><div class="sub-label"><strong>수집할 서브레딧</strong><small id="sub-count">—</small></div><div class="tag-box" id="tag-box"><div id="tags" class="tags"></div><input id="sub-input" type="text" inputmode="latin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="r/ 입력 후 Enter" aria-label="서브레딧 추가"></div><div class="suggest"><small>추천</small><div id="suggest" class="tags"></div></div></div><label class="switch-row"><span><strong>자동화 사용</strong><small>매일 20:30 수집 · 21:00 브리핑</small></span><input id="enabled" type="checkbox"></label><div class="actions"><button type="button" id="run-now">지금 실행</button><button class="primary" type="submit">설정 저장</button></div></form>
+    </section>
+  </aside>
+</div>
+<section class="log-block"><div class="block-head"><h2>최근 로그</h2></div><pre id="log">—</pre></section>
+</main></body></html>

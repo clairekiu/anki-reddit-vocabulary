@@ -5,3 +5,4 @@ daily_summary.json
 disabled
 *.bak*
 __pycache__/
+eval/results/
