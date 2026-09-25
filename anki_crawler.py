@@ -22,6 +22,8 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from vocab_filters import Seen, normalize, reject_reason, screen, sentence_in_source, word_key  # noqa: F401
+
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "state.sqlite3"
 CONFIG_PATH = ROOT / "config.json"
@@ -127,10 +129,6 @@ def connect(path=None):
     return db
 
 
-def word_key(word):
-    return re.sub(r"[^a-z0-9 ]", "", word.lower().replace("-", " ")).strip()
-
-
 def added_today(db, day):
     return db.execute("SELECT COUNT(*) FROM cards WHERE created_date = ? AND COALESCE(source, 'reddit') = 'reddit'",
                       (day,)).fetchone()[0]
@@ -215,36 +213,8 @@ def call_llm(config, api_key, title, body, avoid, count, kind="Reddit post", usa
     return items if isinstance(items, list) else []
 
 
-def normalize(text):
-    return re.sub(r"\s+", " ", text).strip()
-
-
-def reject_reason(item, body):
-    """None if the item passes every quality filter, else the first failing check."""
-    if not isinstance(item, dict):
-        return "schema"
-    fields = ("word", "definition", "reddit_sentence", "academic_example")
-    if not all(isinstance(item.get(f), str) and item[f].strip() for f in fields):
-        return "schema"
-    # Hard single words only; multi-word expressions (idioms, collocations) may be B2.
-    level = str(item.get("cefr", "C1")).upper()[:2]
-    if level not in ("C1", "C2") and not (level == "B2" and " " in item["word"].strip()):
-        return "cefr"
-    if not sentence_in_source(item, body):
-        return "not_verbatim"
-    surface = (item.get("surface") or item["word"]).lower()
-    stem = item["word"].lower().split()[0][:max(4, len(item["word"].split()[0]) - 2)]
-    sentence = normalize(item["reddit_sentence"]).lower()
-    return None if surface in sentence or stem in sentence else "word_missing"
-
-
-def sentence_in_source(item, body):
-    # The example must be a real sentence from the source text (guards against invented examples).
-    sentence = normalize(item["reddit_sentence"])
-    return len(sentence) >= 20 and sentence.lower() in normalize(body).lower()
-
-
 def valid_item(item, body):
+    """Deterministic checks only; screen() adds the LLM judge, dedup and per-text cap."""
     return reject_reason(item, body) is None
 
 
@@ -380,8 +350,12 @@ def insert_card(db, key, item, post, day, source, deck):
     )
 
 
+def learned(db):
+    return Seen(r[0] for r in db.execute("SELECT word FROM cards ORDER BY id"))
+
+
 def collect(db, config, api_key, target):
-    known = {r[0] for r in db.execute("SELECT word_key FROM cards")}
+    known = learned(db)
     seen = {r[0] for r in db.execute("SELECT id FROM posts")}
     posts = [p for p in fetch_posts(config) if p["id"] not in seen]
     random.shuffle(posts)
@@ -391,25 +365,18 @@ def collect(db, config, api_key, target):
     for post in posts[: config["maxPostsPerRun"]]:
         if added >= target:
             break
-        avoid = sorted(known)[-300:]
         try:
-            items = call_llm(config, api_key, post["title"], post["body"], avoid, min(8, target - added + 3))
+            items = call_llm(config, api_key, post["title"], post["body"], known.words[-300:],
+                             min(8, target - added + 3))
         except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as error:
             log(f"LLM failed for {post['id']}: {error}")
             continue
-        per_post = 0
-        for item in items:
-            if added >= target or per_post >= 4:  # spread words over several posts
-                break
-            if not valid_item(item, post["body"]):
-                continue
-            key = word_key(item["word"])
-            if not key or key in known:
-                continue
-            insert_card(db, key, item, post, day, "reddit", config["deckName"])
-            known.add(key)
-            added += 1
-            per_post += 1
+        # spread words over several posts: at most 4 per post
+        kept, _, _ = screen(items, post["body"], known, config, api_key, cap=min(4, target - added))
+        for item in kept:
+            insert_card(db, word_key(item["word"]), item, post, day, "reddit", config["deckName"])
+        added += len(kept)
+        per_post = len(kept)
         db.execute("INSERT OR IGNORE INTO posts VALUES (?,?,?,?,?)",
                    (post["id"], post["subreddit"], post["title"], post["url"], time.time()))
         db.commit()
@@ -562,7 +529,7 @@ def run_paper(source, deck=None, max_words=None):
     if len(body) < 500:
         raise RuntimeError("could not extract enough text from the paper (scanned PDF?)")
     db = connect()
-    known = {r[0] for r in db.execute("SELECT word_key FROM cards")}
+    known = learned(db)
     day = now_kst().date().isoformat()
     parts = chunks(body)
     # spread picks across the paper (intro, method, results, discussion) rather than the first pages only
@@ -573,28 +540,18 @@ def run_paper(source, deck=None, max_words=None):
         if len(added) >= max_words:
             break
         try:
-            items = call_llm(config, api_key, title, parts[index], sorted(known)[-300:],
+            items = call_llm(config, api_key, title, parts[index], known.words[-300:],
                              min(8, max_words - len(added) + 3), kind="research paper excerpt")
         except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as error:
             log(f"LLM failed for chunk {index}: {error}")
             continue
-        per_chunk = 0
-        for item in items:
-            if len(added) >= max_words or per_chunk >= 4:
-                break
-            if not valid_item(item, parts[index]):
-                continue
-            key = word_key(item["word"])
-            if not key:
-                continue
-            if key in known:
-                skipped_known += 1
-                continue
-            insert_card(db, key, item, post, day, "paper", deck)
-            known.add(key)
+        kept, reasons, _ = screen(items, parts[index], known, config, api_key, cap=min(4, max_words - len(added)))
+        skipped_known += sum(r in ("duplicate", "stem_duplicate") for r in reasons)
+        for item in kept:
+            insert_card(db, word_key(item["word"]), item, post, day, "paper", deck)
             added.append({"word": item["word"].strip(), "cefr": str(item.get("cefr", "")).upper()[:2],
                           "meaning": item["definition"].strip()})
-            per_chunk += 1
+        per_chunk = len(kept)
         db.commit()
         log(f"chunk {index + 1}/{len(parts)}: +{per_chunk}")
     pushed, ok = push_pending(db, config)

@@ -1,0 +1,115 @@
+run_id,baseline_run,source,unit,metric,previous_run,old_filter_same_candidates,new_filter,change_new_vs_old
+20260925-225004,20260925-213036,reddit,TOTAL,texts,140,140,140,0
+20260925-225004,20260925-213036,reddit,TOTAL,candidates,917,906,906,0
+20260925-225004,20260925-213036,reddit,TOTAL,pass_rate,0.4013,0.3698,0.2682,-0.1016
+20260925-225004,20260925-213036,reddit,TOTAL,final_words,320,301,222,-79
+20260925-225004,20260925-213036,reddit,TOTAL,final_C1plus_share,0.6219,0.598,0.7883,0.1903
+20260925-225004,20260925-213036,reddit,TOTAL,final_B2_share,0.3781,0.402,0.2117,-0.1903
+20260925-225004,20260925-213036,reddit,TOTAL,final_multiword_share,0.4844,0.5316,0.3739,-0.1577
+20260925-225004,20260925-213036,reddit,TOTAL,residual_non_english,1,0,0,0
+20260925-225004,20260925-213036,reddit,TOTAL,residual_code_term,2,2,0,-2
+20260925-225004,20260925-213036,reddit,TOTAL,residual_basic_expression,44,41,0,-41
+20260925-225004,20260925-213036,reddit,TOTAL,residual_generic_phrase,,10,0,-10
+20260925-225004,20260925-213036,reddit,TOTAL,residual_not_idiomatic,,23,0,-23
+20260925-225004,20260925-213036,reddit,TOTAL,residual_judge_error,,0,0,0
+20260925-225004,20260925-213036,reddit,TOTAL,residual_stem_duplicate,4,4,0,-4
+20260925-225004,20260925-213036,reddit,TOTAL,residual_total,,80,0,-80
+20260925-225004,20260925-213036,reddit,TOTAL,hallucination_rate,0.024,0.0298,0.0298,0.0
+20260925-225004,20260925-213036,reddit,TOTAL,est_cost_usd,0.1572,0.1488,0.1629,0.0141
+20260925-225004,20260925-213036,reddit,TOTAL,seconds,554.5,,614.8,
+20260925-225004,20260925-213036,paper,TOTAL,texts,24,27,27,0
+20260925-225004,20260925-213036,paper,TOTAL,candidates,178,195,195,0
+20260925-225004,20260925-213036,paper,TOTAL,pass_rate,0.618,0.5436,0.5385,-0.0051
+20260925-225004,20260925-213036,paper,TOTAL,final_words,75,75,75,0
+20260925-225004,20260925-213036,paper,TOTAL,final_C1plus_share,0.96,0.96,0.9467,-0.0133
+20260925-225004,20260925-213036,paper,TOTAL,final_B2_share,0.04,0.04,0.0533,0.0133
+20260925-225004,20260925-213036,paper,TOTAL,final_multiword_share,0.1333,0.1733,0.1867,0.0134
+20260925-225004,20260925-213036,paper,TOTAL,residual_non_english,0,1,0,-1
+20260925-225004,20260925-213036,paper,TOTAL,residual_code_term,0,0,0,0
+20260925-225004,20260925-213036,paper,TOTAL,residual_basic_expression,1,0,0,0
+20260925-225004,20260925-213036,paper,TOTAL,residual_generic_phrase,,0,0,0
+20260925-225004,20260925-213036,paper,TOTAL,residual_not_idiomatic,,0,0,0
+20260925-225004,20260925-213036,paper,TOTAL,residual_judge_error,,0,0,0
+20260925-225004,20260925-213036,paper,TOTAL,residual_stem_duplicate,1,1,0,-1
+20260925-225004,20260925-213036,paper,TOTAL,residual_total,,2,0,-2
+20260925-225004,20260925-213036,paper,TOTAL,hallucination_rate,0.0056,0.0103,0.0103,0.0
+20260925-225004,20260925-213036,paper,TOTAL,est_cost_usd,0.0396,0.0432,0.0454,0.0022
+20260925-225004,20260925-213036,paper,TOTAL,seconds,101.7,,128.3,
+20260925-225004,20260925-213036,all,TOTAL,texts,164,167,167,0
+20260925-225004,20260925-213036,all,TOTAL,candidates,1095,1101,1101,0
+20260925-225004,20260925-213036,all,TOTAL,pass_rate,0.4365,0.4005,0.3161,-0.0844
+20260925-225004,20260925-213036,all,TOTAL,final_words,395,376,297,-79
+20260925-225004,20260925-213036,all,TOTAL,final_C1plus_share,0.6861,0.6702,0.8283,0.1581
+20260925-225004,20260925-213036,all,TOTAL,final_B2_share,0.3139,0.3298,0.1717,-0.1581
+20260925-225004,20260925-213036,all,TOTAL,final_multiword_share,0.4177,0.4601,0.3266,-0.1335
+20260925-225004,20260925-213036,all,TOTAL,residual_non_english,1,1,0,-1
+20260925-225004,20260925-213036,all,TOTAL,residual_code_term,2,2,0,-2
+20260925-225004,20260925-213036,all,TOTAL,residual_basic_expression,45,41,0,-41
+20260925-225004,20260925-213036,all,TOTAL,residual_generic_phrase,,10,0,-10
+20260925-225004,20260925-213036,all,TOTAL,residual_not_idiomatic,,23,0,-23
+20260925-225004,20260925-213036,all,TOTAL,residual_judge_error,,0,0,0
+20260925-225004,20260925-213036,all,TOTAL,residual_stem_duplicate,8,5,0,-5
+20260925-225004,20260925-213036,all,TOTAL,residual_total,,82,0,-82
+20260925-225004,20260925-213036,all,TOTAL,hallucination_rate,0.021,0.0263,0.0263,0.0
+20260925-225004,20260925-213036,all,TOTAL,est_cost_usd,0.1968,0.192,0.2083,0.0163
+20260925-225004,20260925-213036,all,TOTAL,seconds,656.2,,743.1,
+20260925-225004,20260925-213036,reddit,r/robotics,candidates,,126,126,0
+20260925-225004,20260925-213036,reddit,r/robotics,pass_rate,,0.3571,0.254,-0.1031
+20260925-225004,20260925-213036,reddit,r/robotics,final_words,,43,32,-11
+20260925-225004,20260925-213036,reddit,r/robotics,final_C1plus_share,,0.5814,0.7812,0.1998
+20260925-225004,20260925-213036,reddit,r/robotics,residual_total,,11,0,-11
+20260925-225004,20260925-213036,reddit,r/MachineLearning,candidates,,123,123,0
+20260925-225004,20260925-213036,reddit,r/MachineLearning,pass_rate,,0.3577,0.2846,-0.0731
+20260925-225004,20260925-213036,reddit,r/MachineLearning,final_words,,43,34,-9
+20260925-225004,20260925-213036,reddit,r/MachineLearning,final_C1plus_share,,0.6279,0.7647,0.1368
+20260925-225004,20260925-213036,reddit,r/MachineLearning,residual_total,,9,0,-9
+20260925-225004,20260925-213036,reddit,r/ControlTheory,candidates,,134,134,0
+20260925-225004,20260925-213036,reddit,r/ControlTheory,pass_rate,,0.4179,0.2761,-0.1418
+20260925-225004,20260925-213036,reddit,r/ControlTheory,final_words,,50,34,-16
+20260925-225004,20260925-213036,reddit,r/ControlTheory,final_C1plus_share,,0.48,0.7059,0.2259
+20260925-225004,20260925-213036,reddit,r/ControlTheory,residual_total,,16,0,-16
+20260925-225004,20260925-213036,reddit,r/ROS,candidates,,143,143,0
+20260925-225004,20260925-213036,reddit,r/ROS,pass_rate,,0.3287,0.2168,-0.1119
+20260925-225004,20260925-213036,reddit,r/ROS,final_words,,37,27,-10
+20260925-225004,20260925-213036,reddit,r/ROS,final_C1plus_share,,0.6216,0.8519,0.2303
+20260925-225004,20260925-213036,reddit,r/ROS,residual_total,,10,0,-10
+20260925-225004,20260925-213036,reddit,r/cpp,candidates,,113,113,0
+20260925-225004,20260925-213036,reddit,r/cpp,pass_rate,,0.2832,0.2124,-0.0708
+20260925-225004,20260925-213036,reddit,r/cpp,final_words,,32,23,-9
+20260925-225004,20260925-213036,reddit,r/cpp,final_C1plus_share,,0.6562,0.8696,0.2134
+20260925-225004,20260925-213036,reddit,r/cpp,residual_total,,8,0,-8
+20260925-225004,20260925-213036,reddit,r/compsci,candidates,,146,146,0
+20260925-225004,20260925-213036,reddit,r/compsci,pass_rate,,0.4726,0.3836,-0.089
+20260925-225004,20260925-213036,reddit,r/compsci,final_words,,62,49,-13
+20260925-225004,20260925-213036,reddit,r/compsci,final_C1plus_share,,0.7097,0.8367,0.127
+20260925-225004,20260925-213036,reddit,r/compsci,residual_total,,12,0,-12
+20260925-225004,20260925-213036,reddit,r/math,candidates,,121,121,0
+20260925-225004,20260925-213036,reddit,r/math,pass_rate,,0.3471,0.2314,-0.1157
+20260925-225004,20260925-213036,reddit,r/math,final_words,,34,23,-11
+20260925-225004,20260925-213036,reddit,r/math,final_C1plus_share,,0.4706,0.6957,0.2251
+20260925-225004,20260925-213036,reddit,r/math,residual_total,,11,0,-11
+20260925-225004,20260925-213036,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,candidates,,37,37,0
+20260925-225004,20260925-213036,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,pass_rate,,0.5135,0.5135,0.0
+20260925-225004,20260925-213036,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,final_words,,15,15,0
+20260925-225004,20260925-213036,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,final_C1plus_share,,0.9333,0.9333,0.0
+20260925-225004,20260925-213036,paper,Diffusion Policy: Visuomotor Policy Learning via Action Diffusion,residual_total,,0,0,0
+20260925-225004,20260925-213036,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,candidates,,39,39,0
+20260925-225004,20260925-213036,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,pass_rate,,0.6154,0.6154,0.0
+20260925-225004,20260925-213036,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,final_words,,15,15,0
+20260925-225004,20260925-213036,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,final_C1plus_share,,0.8667,0.8667,0.0
+20260925-225004,20260925-213036,paper,RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control,residual_total,,1,0,-1
+20260925-225004,20260925-213036,paper,Control Barrier Functions: Theory and Applications,candidates,,45,45,0
+20260925-225004,20260925-213036,paper,Control Barrier Functions: Theory and Applications,pass_rate,,0.4889,0.4667,-0.0222
+20260925-225004,20260925-213036,paper,Control Barrier Functions: Theory and Applications,final_words,,15,15,0
+20260925-225004,20260925-213036,paper,Control Barrier Functions: Theory and Applications,final_C1plus_share,,1.0,0.9333,-0.0667
+20260925-225004,20260925-213036,paper,Control Barrier Functions: Theory and Applications,residual_total,,1,0,-1
+20260925-225004,20260925-213036,paper,Attention Is All You Need,candidates,,35,35,0
+20260925-225004,20260925-213036,paper,Attention Is All You Need,pass_rate,,0.6571,0.6571,0.0
+20260925-225004,20260925-213036,paper,Attention Is All You Need,final_words,,15,15,0
+20260925-225004,20260925-213036,paper,Attention Is All You Need,final_C1plus_share,,1.0,1.0,0.0
+20260925-225004,20260925-213036,paper,Attention Is All You Need,residual_total,,0,0,0
+20260925-225004,20260925-213036,paper,LoRA: Low-Rank Adaptation of Large Language Models,candidates,,39,39,0
+20260925-225004,20260925-213036,paper,LoRA: Low-Rank Adaptation of Large Language Models,pass_rate,,0.4615,0.4615,0.0
+20260925-225004,20260925-213036,paper,LoRA: Low-Rank Adaptation of Large Language Models,final_words,,15,15,0
+20260925-225004,20260925-213036,paper,LoRA: Low-Rank Adaptation of Large Language Models,final_C1plus_share,,1.0,1.0,0.0
+20260925-225004,20260925-213036,paper,LoRA: Low-Rank Adaptation of Large Language Models,residual_total,,0,0,0
