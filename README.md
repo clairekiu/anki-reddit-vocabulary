@@ -11,3 +11,13 @@ Reddit 기술 글(RSS) → DeepSeek로 B2~C2 어휘 + 원문 예문 추출 → A
 /usr/bin/python3 anki_crawler.py --dry-run   # 수집만
 /usr/bin/python3 -m unittest -v
 ```
+
+## 논문 모드
+
+```bash
+/usr/bin/python3 anki_crawler.py --paper paper.pdf            # 또는 arXiv/PDF URL, .txt
+/usr/bin/python3 anki_crawler.py --paper URL --deck "English::..." --max 10
+```
+
+같은 필터·중복 DB를 쓰고 기본 덱은 `English::paper-vocab`(최대 15개), 결과는 JSON. 텔레그램에서 hermes-yuna에게
+PDF·링크를 보내며 "안키로 정리해줘"라고 하면 `skills/anki-connect` 스킬이 이 명령을 실행한다. PDF 추출에 `poppler`(brew) 필요.
