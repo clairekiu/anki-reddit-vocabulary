@@ -1,0 +1,7 @@
+.env
+state.sqlite3
+daily_summary.json
+*.log
+disabled
+*.bak*
+__pycache__/
